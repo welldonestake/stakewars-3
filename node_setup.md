@@ -47,10 +47,10 @@
   git checkout fe435d02c5ea497933c89d5e7d1703d9379b7e1f
   ```
   `cargo build -p neard --release --features shardnet` \
-  `./target/release/neard --home ~/.near init --chain-id shardnet --download-genesis`
+  `./target/release/neard --home /.near init --chain-id shardnet --download-genesis`
   ```
-  rm ~/.near/config.json
-  wget -O ~/.near/config.json https://s3-us-west-1.amazonaws.com/build.nearprotocol.com/nearcore-deploy/shardnet/config.json  
+  rm /.near/config.json
+  wget -O /.near/config.json https://s3-us-west-1.amazonaws.com/build.nearprotocol.com/nearcore-deploy/shardnet/config.json  
   ```
   create linux service/daemon, for that in working directory execute `nano neard.service` and paste there
   ```
