@@ -1,7 +1,7 @@
 
 - choose server
   ```
-    minimal requirements are 4 cpu, 8GB ram, 500GB ssd
+  minimal requirements are 4 cpu, 8GB ram, 500GB ssd
   ```
   for stakewars one could go with VPS but we highly recommend bare_metal/dedicated server in prod environment \
   price vary between 40 - 60 usd for such setup \
