@@ -34,12 +34,12 @@
   ```
   sudo npm install -g near-cli, 
   ```
-  Rust
+  install Rust
   ```
   sudo apt install curl build-essential gcc make -y and `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh` (Proceed with installation (default))
   ```
-- next, we need a [wallet]( https://wallet.shardnet.near.org/)
-- next, setup a node
+- create a [wallet]( https://wallet.shardnet.near.org/)
+- spin-up a node
   ```
   git clone https://github.com/near/nearcore
   cd nearcore
@@ -52,7 +52,7 @@
   rm ~/.near/config.json
   wget -O ~/.near/config.json https://s3-us-west-1.amazonaws.com/build.nearprotocol.com/nearcore-deploy/shardnet/config.json  
   ```
-  lets run a daemon, in you working directory execute `nano neard.service` and paste there
+  create linux service/daemon, for that in working directory execute `nano neard.service` and paste there
   ```
   [Unit]
   Description=NEARd Daemon Service
@@ -91,13 +91,14 @@
 - deploy new staking pool. \
   staking pool is a smart contract that is deployed to a NEAR account
   
-  run in terminal `near login`, \
-  ![log_in](login.png) \
+  execute in terminal `near login`, \
+  ![term_log](terminal_login.png) \
   copy provided link and paste it into browser \
+  ![log_in](login.png) \
   grant Access to Near CLI 
   
-  error `This site cannot be reached` is expected
-  enter your wallet and press Enter \
+  error `This site cannot be reached` is expected \
+  provide your wallet and press Enter \
   `Logged in as [xxx.near] with public key [ yyy:zzz] successfully`
   
   next, `near generate-key [pool_id]`, pool_id ---> xx.factory.shardnet.near WHERE xx is you pool name \
@@ -117,16 +118,16 @@
   ```
   journalctl -n 100 -f -u neard | ccze -A
   ```
-  check node vrsion
+  node vrsion
   ```
   sudo apt install curl jq (execute only once)
   curl -s http://127.0.0.1:3030/status | jq .version
   ```
-  check delegators and stake  
+  delegators/stakes
   ```
   near view <your pool>.factory.shardnet.near get_accounts '{"from_index": 0, "limit": 10}' --accountId <accountId>.shardnet.near
   ```
-  check why kicked (if it has happened ofc)
+  kicked-out reason
   ```
   curl -s -d '{"jsonrpc": "2.0", "method": "validators", "id": "dontcare", "params": [null]}' -H 'Content-Type: application/json' 127.0.0.1:3030 | jq -c '.result.prev_epoch_kickout[] | select(.account_id | contains ("<POOL_ID>"))' | jq .reason
   ```
@@ -134,7 +135,7 @@
   ```
   curl -r -s -d '{"jsonrpc": "2.0", "method": "validators", "id": "dontcare", "params": [null]}' -H 'Content-Type: application/json' 127.0.0.1:3030 | jq -c '.result.current_validators[] | select(.account_id | contains ("POOL_ID"))'
   ```
-- congrats. that's it
+- done
  
   
 
