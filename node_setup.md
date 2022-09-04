@@ -92,7 +92,7 @@
   staking pool is a smart contract that is deployed to a NEAR account
   
   run in terminal `near login`, \
-  ![grant](login.png) \
+  ![log_in](login.png) \
   copy provided link and paste it into browser \
   grant Access to Near CLI 
   
