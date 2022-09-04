@@ -103,9 +103,9 @@
   
   next, `near generate-key [pool_id]`, pool_id ---> xx.factory.shardnet.near WHERE xx is you pool name \
   copy the file generated to shardnet folder: make sure to replace <pool_id> by your pool name \
-  cp .near-credentials/shardnet/YOUR_WALLET.json .near/validator_key.json
+  `cp .near-credentials/shardnet/YOUR_WALLET.json .near/validator_key.json`
   
-  edit “account_id” => xx.factory.shardnet.near, where xx is your PoolName \
+  edit "account_id" => xx.factory.shardnet.near, where xx is your PoolName \
   change private_key to secret_key
   
   restart neard service `sudo systemctl restart neard`
